@@ -1,15 +1,15 @@
-name: Controllo Automatico Multipli 5 Settimane
+name: Controllo Giornaliero Multipli 5 Settimane
 
 on:
   schedule:
-    # Esegue ogni lunedì alle 10:00 (ora italiana circa)
-    - cron: '0 9 * * 1'
-  workflow_dispatch: # Permette di testarlo manualmente premendo un tasto su GitHub
+    # Gira TUTTI I GIORNI alle 10:00 (ora italiana circa)
+    - cron: '0 9 * * *'
+  workflow_dispatch: # Ti permette di provarlo a mano quando vuoi
 
 jobs:
   ping-website:
     runs-on: ubuntu-latest
     steps:
-      - name: Esegue il controllo sul server Altervista
+      - name: Chiamata allo script su Altervista
         run: |
           curl -s https://fantaranking.altervista.org/cron_check.php

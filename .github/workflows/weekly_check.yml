@@ -1,0 +1,15 @@
+name: Controllo Automatico Multipli 5 Settimane
+
+on:
+  schedule:
+    # Esegue ogni lunedì alle 10:00 (ora italiana circa)
+    - cron: '0 9 * * 1'
+  workflow_dispatch: # Permette di testarlo manualmente premendo un tasto su GitHub
+
+jobs:
+  ping-website:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Esegue il controllo sul server Altervista
+        run: |
+          curl -s https://fantaranking.altervista.org/cron_check.php

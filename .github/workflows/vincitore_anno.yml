@@ -1,0 +1,15 @@
+name: Celebrazione Vincitore Anno
+
+on:
+  schedule:
+    # Gira alle 00:01 del 1° Gennaio di ogni anno
+    - cron: '1 0 1 1 *'
+  workflow_dispatch: # Per testarlo subito quando vuoi
+
+jobs:
+  punti-anno:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Chiama lo script del vincitore annuale
+        run: |
+          curl -s https://fantaranking.altervista.org/vincitore_anno.php

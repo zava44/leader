@@ -1,0 +1,15 @@
+name: Controllo Trofei Carriera (Multipli di 5)
+
+on:
+  schedule:
+    # Controlla ogni giorno alle 10:30 (ora italiana)
+    - cron: '30 8 * * *'
+  workflow_dispatch: # Permette il test manuale
+
+jobs:
+  check-trophies:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Esegue controllo vittorie su Altervista
+        run: |
+          curl -s https://fantaranking.altervista.org/vittorie_check.php

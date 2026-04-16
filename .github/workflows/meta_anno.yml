@@ -1,0 +1,15 @@
+name: Notifica Bilancio Metà Anno (30 Giugno)
+
+on:
+  schedule:
+    # Gira alle 10:00 (ora italiana) del 30 Giugno di ogni anno
+    - cron: '0 8 30 6 *'
+  workflow_dispatch: # Per testarlo subito se vuoi vedere come arriva il messaggio
+
+jobs:
+  mid-year-check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Chiama lo script di metà anno
+        run: |
+          curl -s https://fantaranking.altervista.org/metà_anno.php

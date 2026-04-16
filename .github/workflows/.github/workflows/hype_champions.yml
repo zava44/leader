@@ -1,0 +1,15 @@
+name: Notifica Hype Champions League
+
+on:
+  schedule:
+    # Gira alle 10:00 (ora italiana) del 15 Maggio
+    - cron: '0 8 15 5 *'
+  workflow_dispatch: # Per provarlo a mano quando vuoi
+
+jobs:
+  hype-check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Chiama lo script Hype
+        run: |
+          curl -s https://fantaranking.altervista.org/champions_hype.php

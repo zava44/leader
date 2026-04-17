@@ -12,4 +12,4 @@ jobs:
     steps:
       - name: Chiama lo script di metà anno
         run: |
-          curl -s https://fantaranking.altervista.org/metà_anno.php
+          curl -s https://fantaranking.altervista.org/met_anno.php

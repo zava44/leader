@@ -1,0 +1,15 @@
+name: Controllo Eventi Fissi Fantaranking
+
+on:
+  schedule:
+    # Gira ogni giorno alle 09:00 UTC (10:00 o 11:00 in Italia)
+    - cron: '0 9 * * *'
+  workflow_dispatch: # Per testarlo a mano quando vuoi
+
+jobs:
+  check-eventi:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Interroga il file centrale eventi
+        run: |
+          curl -s https://fantaranking.altervista.org/met_anno.php
